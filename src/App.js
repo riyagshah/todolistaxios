@@ -31,7 +31,7 @@ const handleUpdateChange=(e)=>{
 
  const handleit=(id)=>{
    setUpdater(!updater)
-  axios.put(`http://localhost:3000/todos/${id}`, {
+  axios.put(`http://localhost:8000/todos/${id}`, {
     text: updatevalue,
     isCompleted: false,
     
@@ -48,7 +48,7 @@ const handleUpdateChange=(e)=>{
  }
 const deleteitem=(id)=>{
   // const axios = require('axios');
-axios.delete(`http://localhost:3000/todos/${id}`)
+axios.delete(`http://localhost:8000/todos/${id}`)
     .then(resp => {
         console.log(resp.data)
         setFlag(!flag)
@@ -60,7 +60,7 @@ axios.delete(`http://localhost:3000/todos/${id}`)
 
     const getTodo=async ()=>{
 
-    let r=await axios.get(`http://localhost:3000/todos?_page=${page}&_limit=${limit}`) 
+    let r=await axios.get(`http://localhost:8000/todos?_page=${page}&_limit=${limit}`) 
 console.log(r.data)
 setTodos(r.data)
 setTotalCount(Number(r.headers["x-total-count"]));
